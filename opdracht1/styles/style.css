@@ -33,14 +33,6 @@ section{
   overflow-x: hidden;
 }
 
-section:first-of-type {
-	left: 0;
-}
-
-section:nth-of-type(2) {
-	right: 0;
-}
-
 h1{
 	position: absolute;
   top: 50%;
@@ -52,11 +44,15 @@ h1{
 /* BRAND STYLING */
 
 /* Vans */
-section:first-of-type h1 {
-	font-family:'Tepeno Sans', sans-serif;
-	/* font-size: 4em; */
+section:first-of-type {
+	left: 0;
 }
 
+section:first-of-type h1 {
+	font-family:'Tepeno Sans', sans-serif;
+}
+
+/* Span */
 section:first-of-type h1 span:first-of-type{
 	font-size: 4em;
 	position:relative;
@@ -74,6 +70,7 @@ section:first-of-type h1 span:nth-of-type(4){
 	font-size: 3em;
 }
 
+/* Before/After */
 section:first-of-type h1 span:first-of-type::before{
 	content: '';
 	position: absolute;
@@ -93,7 +90,41 @@ section:first-of-type h1 span:nth-of-type(2)::before{
   top: -0.7em;
 }
 
+/* Keyframes */
+@keyframes vans-animation {
+  0% {
+    transform:rotate(0);
+  }
+  100% {
+    transform:rotate(30deg);
+  }
+}
+
+@keyframes skateboard-animation {
+  0% {
+    left:0;
+  }
+  100% {
+    left:2em;
+  }
+}
+
+/* Hover */
+section:first-of-type:hover{
+  animation-name:vans-animation;
+  animation-duration:2s;
+}
+
+section:first-of-type h1:hover span:nth-of-type(2)::before {
+	animation-name: skateboard-animation;
+	animation-duration: 2s;
+}
+
 /* Instagram */
+section:nth-of-type(2) {
+	right: 0;
+}
+
 section:nth-of-type(2) h1{
 	font-family: 'Dancing Script', cursive;
 	font-size: 2em;
