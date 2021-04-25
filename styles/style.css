@@ -1,0 +1,166 @@
+/* CSS Document */
+
+/* FONTS */
+@font-face {
+	font-family: 'eenfont';
+	src: url('../fonts/eenfont.woff2') format('woff2'),
+			 url('../fonts/eenfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+@import url(//db.onlinewebfonts.com/c/39bdd3092b9dea8d90eab635bb361024?family=Tepeno+Sans);
+
+@font-face {font-family: "Tepeno Sans"; src: url("//db.onlinewebfonts.com/t/39bdd3092b9dea8d90eab635bb361024.eot"); src: url("//db.onlinewebfonts.com/t/39bdd3092b9dea8d90eab635bb361024.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/39bdd3092b9dea8d90eab635bb361024.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/39bdd3092b9dea8d90eab635bb361024.woff") format("woff"), url("//db.onlinewebfonts.com/t/39bdd3092b9dea8d90eab635bb361024.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/39bdd3092b9dea8d90eab635bb361024.svg#Tepeno Sans") format("svg"); }
+
+/* ALGEMENE STYLING */
+*, *::after, *::before {
+  box-sizing:border-box;
+}
+
+body {
+  font-family:eenfont, sans-serif;
+  color:#111;
+  background-color:#eee;
+}
+
+/* Split screen: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_split_screen */
+section{
+	height: 100%;
+  width: 50%;
+  position: fixed;
+  overflow-x: hidden;
+}
+
+h1{
+	position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* BRAND STYLING */
+
+/* Vans */
+section:first-of-type {
+	left: 0;
+}
+
+section:first-of-type h1 {
+	font-family:'Tepeno Sans', sans-serif;
+}
+
+/* Span */
+section:first-of-type h1 span:first-of-type{
+	font-size: 4em;
+	position:relative;
+}
+
+section:first-of-type h1 span:nth-of-type(2){
+	font-size: 3em;
+}
+
+section:first-of-type h1 span:nth-of-type(3){
+	font-size: 3em;
+}
+
+section:first-of-type h1 span:nth-of-type(4){
+	font-size: 3em;
+}
+
+/* Before/After */
+section:first-of-type h1 span:first-of-type::before{
+	content: '';
+	position: absolute;
+	width: 1.6em;
+	height: 0.12em;
+	background-color: black;
+	left: 0.39em;
+	top: 0.22em;
+}
+
+section:first-of-type h1 span:nth-of-type(2)::before{
+	content: '🛹';
+	position: absolute;
+	width: 1.6em;
+	height: 0.12em;
+	left: 0.2em;
+  top: -0.7em;
+}
+
+/* Keyframes */
+@keyframes vans-animation {
+  0% {
+    transform:rotate(0);
+  }
+  100% {
+    transform:rotate(30deg);
+  }
+}
+
+@keyframes skateboard-animation {
+  0% {
+    left:0;
+  }
+  100% {
+    left:2em;
+  }
+}
+
+/* Hover */
+section:first-of-type:hover{
+  animation-name:vans-animation;
+  animation-duration:2s;
+}
+
+section:first-of-type:hover span:nth-of-type(2)::before {
+	animation-name: skateboard-animation;
+	animation-duration: 2s;
+}
+
+/* Instagram */
+section:nth-of-type(2) {
+	right: 0;
+}
+
+section:nth-of-type(2) h1{
+	font-family: 'Dancing Script', cursive;
+	font-size: 3em;
+	display: flex;
+}
+
+/* Gradient: https://stackoverflow.com/questions/37751375/instagram-new-logo-css-background */
+section:nth-of-type(2) h1 span:first-of-type::before{
+	content: '';
+	position: absolute;
+	width: 2em;
+	height: 2em;
+	background-image: radial-gradient(circle at 10% 100%, #fed373 5%, #f15245 40%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+	border-radius: 20%;
+	right: 30%;
+	bottom: 130%;
+}
+
+section:nth-of-type(2) h1 span:nth-of-type(2)::before{
+	content: '';
+	position: absolute;
+	width: 1.4em;
+	height: 1.4em;
+	border: solid 0.15em white;
+	border-radius:20%;
+	right: 38%;
+	bottom: 155%;
+}
+
+section:nth-of-type(2) h1 span:nth-of-type(3)::before{
+	content: '';
+	position: absolute;
+	width: 0.8em;
+	height: 0.8em;
+	border: solid 0.15em white;
+	border-radius:50%;
+	right: 46%;
+	bottom: 180%;
+}
