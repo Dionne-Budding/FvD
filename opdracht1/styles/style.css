@@ -115,7 +115,7 @@ section:first-of-type:hover{
   animation-duration:2s;
 }
 
-section:first-of-type h1:hover span:nth-of-type(2)::before {
+section:first-of-type:hover span:nth-of-type(2)::before {
 	animation-name: skateboard-animation;
 	animation-duration: 2s;
 }
@@ -127,5 +127,40 @@ section:nth-of-type(2) {
 
 section:nth-of-type(2) h1{
 	font-family: 'Dancing Script', cursive;
-	font-size: 2em;
+	font-size: 3em;
+	display: flex;
+}
+
+/* Gradient: https://stackoverflow.com/questions/37751375/instagram-new-logo-css-background */
+section:nth-of-type(2) h1 span:first-of-type::before{
+	content: '';
+	position: absolute;
+	width: 2em;
+	height: 2em;
+	background-image: radial-gradient(circle at 10% 100%, #fed373 5%, #f15245 40%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+	border-radius: 20%;
+	right: 30%;
+	bottom: 130%;
+}
+
+section:nth-of-type(2) h1 span:nth-of-type(2)::before{
+	content: '';
+	position: absolute;
+	width: 1.4em;
+	height: 1.4em;
+	border: solid 0.15em white;
+	border-radius:20%;
+	right: 38%;
+	bottom: 155%;
+}
+
+section:nth-of-type(2) h1 span:nth-of-type(3)::before{
+	content: '';
+	position: absolute;
+	width: 0.8em;
+	height: 0.8em;
+	border: solid 0.15em white;
+	border-radius:50%;
+	right: 46%;
+	bottom: 180%;
 }
