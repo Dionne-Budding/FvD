@@ -68,6 +68,7 @@ section:first-of-type h1 span:nth-of-type(3){
 
 section:first-of-type h1 span:nth-of-type(4){
 	font-size: 3em;
+	display: inline-block;
 }
 
 /* Before/After */
@@ -135,10 +136,13 @@ section:first-of-type h1 span:nth-of-type(2)::before{
 
 @keyframes vans-s {
 	0% {
-	transform: rotate(0turn);
+	transform: rotate(0deg);
   }
-  100% {
-  transform: rotate(1turn);
+  50% {
+  transform: rotate(-60deg);
+  }
+	100% {
+	transform: rotate(0deg);
   }
 }
 
@@ -156,8 +160,8 @@ section:first-of-type:hover span:nth-of-type(2)::before {
 
 section:first-of-type:hover span:nth-of-type(4){
 	animation-name:vans-s;
-  animation-duration:1.5s;
-	animation-delay: 1s;
+  animation-duration:1s;
+	animation-delay: 2.8s;
 }
 
 /* Instagram */
@@ -171,6 +175,10 @@ section:nth-of-type(2) h1{
 	display: flex;
 }
 
+/* span */
+
+
+/* befor/after */
 /* Gradient: https://stackoverflow.com/questions/37751375/instagram-new-logo-css-background */
 section:nth-of-type(2) h1 span:first-of-type::before{
 	content: '';
@@ -203,4 +211,21 @@ section:nth-of-type(2) h1 span:nth-of-type(3)::before{
 	border-radius:50%;
 	right: 46%;
 	bottom: 180%;
+}
+
+/* keyframes */
+
+@keyframes gradient {
+	0% {
+	/* jouw code hier */
+	background-position:left center;
+}
+100% {
+	background-position:right center;
+}
+}
+
+/* hover */
+section:nth-of-type(2):hover span:first-of-type::before{
+	animation-name: gradient 15s ease infinite;
 }
