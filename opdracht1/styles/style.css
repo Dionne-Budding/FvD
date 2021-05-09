@@ -19,6 +19,12 @@
   box-sizing:border-box;
 }
 
+:root{
+	--gradiant: radial-gradient(circle at 10% 100%, #fed373 5%, #f15245 40%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+	--gradiant2: radial-gradient(circle at 100% 10%, #DCDCDC 5%, #D3D3D3 40%, #C0C0C0 62%, 	#A9A9A9 85%, #808080);
+	--gradient3: linear-gradient(#fed373, #f15245, #d92e7f, #9b36b7, #515ecf)
+}
+
 body {
   font-family:eenfont, sans-serif;
   color:#111;
@@ -185,13 +191,24 @@ section:nth-of-type(2) h1 span:first-of-type::before{
 	position: absolute;
 	width: 2em;
 	height: 2em;
-	background-image: radial-gradient(circle at 10% 100%, #fed373 5%, #f15245 40%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+	background-image: var(--gradiant2);
 	border-radius: 20%;
 	right: 30%;
 	bottom: 130%;
 }
 
-section:nth-of-type(2) h1 span:nth-of-type(2)::before{
+section:nth-of-type(2) h1 span:nth-of-type(2)::after{
+	content: '';
+	position: absolute;
+	width: 2em;
+	height: 2em;
+	background-image: transparent;
+	border-radius: 20%;
+	right: -23%;
+	bottom: 130%;
+}
+
+section:nth-of-type(2) h1 span:nth-of-type(3)::before{
 	content: '';
 	position: absolute;
 	width: 1.4em;
@@ -202,7 +219,7 @@ section:nth-of-type(2) h1 span:nth-of-type(2)::before{
 	bottom: 155%;
 }
 
-section:nth-of-type(2) h1 span:nth-of-type(3)::before{
+section:nth-of-type(2) h1 span:nth-of-type(4)::before{
 	content: '';
 	position: absolute;
 	width: 0.8em;
@@ -213,19 +230,103 @@ section:nth-of-type(2) h1 span:nth-of-type(3)::before{
 	bottom: 180%;
 }
 
+section:nth-of-type(2) h1{
+	background-color: gray;
+	background-clip: text;
+	color: transparent;
+	-webkit-background-clip: text;
+}
+
+section:nth-of-type(2) h1::before{
+	content: 'Instagram';
+	background-image: var(--gradient3);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 0;
+	background-clip: text;
+	color: transparent;
+	-webkit-background-clip: text;
+}
+
 /* keyframes */
 
 @keyframes gradient {
 	0% {
-	/* jouw code hier */
-	background-position:left center;
+		right: -30%;
+	}
+	100%{
+		background-image: var(--gradiant);
+		right: 30%;
+	}
 }
-100% {
-	background-position:right center;
+
+/* https://codepen.io/twinpixxx/pen/PKEGdV */
+@keyframes animate_circle{
+	0%{
+		transform: scale(0);
+		opacity: 0;
+	}
+	15%{
+		transform: scale(1);
+		opacity: 1;
+	}
+	50%{
+		transform: scale(1);
+		background-color: transparent;
+	}
+	65%{
+		transform: scale(1.2);
+		background-color: #ffffff;
+	}
+	100%{
+		transform: scale(1);
+	}
 }
+
+@keyframes rondje {
+  0% {
+    transform:rotate(0);
+  }
+  100% {
+    transform:rotate(1turn);
+  }
+}
+
+@keyframes tekst {
+	0% {
+		width: 0;
+	}
+	100%{
+		width: 100%;
+	}
 }
 
 /* hover */
-section:nth-of-type(2):hover span:first-of-type::before{
-	animation-name: gradient 15s ease infinite;
+section:nth-of-type(2):hover span:nth-of-type(2)::after{
+	animation-name: gradient;
+	animation-duration: 2s;
+	animation-fill-mode: forwards, none;
+}
+
+section:nth-of-type(2):hover span:nth-of-type(4)::before{
+	animation-name: animate_circle;
+	animation-duration: 3s;
+	animation-delay: 2s;
+}
+
+section:nth-of-type(2):hover span:nth-of-type(3)::before{
+	animation-name: rondje;
+	animation-duration: 2s;
+	animation-delay: 1.5s;
+}
+
+section:nth-of-type(2):hover h1::before{
+	animation-name: tekst;
+	animation-duration: 4s;
+	animation-delay: 0.5s;
+	transition: ease-in-out;
+	animation-fill-mode: forwards
 }
