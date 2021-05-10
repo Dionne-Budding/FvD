@@ -70,6 +70,7 @@ section:first-of-type {
 section:first-of-type h1 {
 	font-family:'Tepeno Sans', sans-serif;
 	color: var(--vansColor);
+	font-weight: bold;
 }
 
 /* Span */
