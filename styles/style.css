@@ -74,20 +74,20 @@ section:first-of-type h1 {
 
 /* Span */
 section:first-of-type h1 span:first-of-type{
-	font-size: 4em;
+	font-size: min(11vw, 4em);
 	position:relative;
 }
 
 section:first-of-type h1 span:nth-of-type(2){
-	font-size: 3em;
+	font-size: min(8vw, 3em);
 }
 
 section:first-of-type h1 span:nth-of-type(3){
-	font-size: 3em;
+	font-size: min(8vw, 3em);
 }
 
 section:first-of-type h1 span:nth-of-type(4){
-	font-size: 3em;
+	font-size: min(8vw, 3em);
 	display: inline-block;
 }
 
@@ -194,11 +194,9 @@ section:nth-of-type(2) {
 
 section:nth-of-type(2) h1{
 	font-family: 'Dancing Script', cursive;
-	font-size: 3em;
+	font-size: min(8vw, 3em);
 	display: flex;
 }
-
-/* span */
 
 
 /* befor/after */
@@ -214,14 +212,14 @@ section:nth-of-type(2) h1 span:first-of-type::before{
 	bottom: 130%;
 }
 
-section:nth-of-type(2) h1 span:nth-of-type(2)::after{
+section:nth-of-type(2) h1 span:first-of-type::after{
 	content: '';
 	position: absolute;
 	width: 2em;
 	height: 2em;
-	background-image: transparent;
+	background-image: var(--gradiant2);
 	border-radius: 20%;
-	right: -23%;
+	right: 30%;
 	bottom: 130%;
 }
 
@@ -272,12 +270,13 @@ section:nth-of-type(2) h1::before{
 /* keyframes */
 
 @keyframes gradient {
-	0% {
-		right: -30%;
+	0%{
+		width: 0;
+		background-image: var(--gradiant)
 	}
 	100%{
-		background-image: var(--gradiant);
-		right: 30%;
+		width: 52%;
+		background-image: var(--gradiant)
 	}
 }
 
@@ -304,7 +303,7 @@ section:nth-of-type(2) h1::before{
 	}
 }
 
-@keyframes rondje {
+@keyframes vierkant {
   0% {
     transform:rotate(0);
   }
@@ -323,28 +322,28 @@ section:nth-of-type(2) h1::before{
 }
 
 /* hover */
-section:nth-of-type(2):hover span:nth-of-type(2)::after{
+section:nth-of-type(2):hover span:first-of-type::after{
 	animation-name: gradient;
-	animation-duration: 2s;
-	animation-fill-mode: forwards, none;
+	animation-duration: 3s;
+	transition: ease-in-out;
+	animation-fill-mode: forwards;
 }
 
 section:nth-of-type(2):hover span:nth-of-type(4)::before{
 	animation-name: animate_circle;
 	animation-duration: 3s;
-	animation-delay: 2s;
+	animation-delay: 1.8s;
 }
 
 section:nth-of-type(2):hover span:nth-of-type(3)::before{
-	animation-name: rondje;
+	animation-name: vierkant;
 	animation-duration: 2s;
-	animation-delay: 1.5s;
+	animation-delay: 1.2s;
 }
 
 section:nth-of-type(2):hover h1::before{
 	animation-name: tekst;
 	animation-duration: 4s;
-	animation-delay: 0.5s;
 	transition: ease-in-out;
 	animation-fill-mode: forwards
 }
