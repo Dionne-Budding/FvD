@@ -1,27 +1,273 @@
 /* CSS Document */
-
 /* FONTS */
 @font-face {
-	font-family: 'eenfont';
-	src: url('../fonts/eenfont.woff2') format('woff2'),
-			 url('../fonts/eenfont.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-
+  font-family: 'eenfont';
+  src: url('../fonts/eenfont.woff2') format('woff2'),
+    url('../fonts/eenfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
-
 
 /* ALGEMENE STYLING */
 *, *::after, *::before {
-  box-sizing:border-box;  
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  font-family:eenfont, sans-serif;
-  color:#111;
-  background-color:#eee;
+  --backgroundColor: #2C0C4D;
+  --buttons: #FF18D5;
+  --background1: #47276A;
+  --background2: #701EC2;
+  font-family: eenfont, sans-serif;
+  color: #111;
+  background-color: var(--backgroundColor);
+  color: white;
 }
 
+ul {
+  list-style-type: none;
+}
 
 /* BRAND STYLING */
+header {
+  background-color: var(--backgroundColor);
+  text-align: center;
+}
 
+header h1 {
+  padding: 2%;
+  color: white;
+}
+
+/* 1e section met zoekbalk en filter */
+section:first-of-type, section:nth-of-type(2) {
+  padding-top: 5%;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* button filter*/
+section:first-of-type button, section:nth-of-type(2) button {
+  padding: 1.2em;
+  padding-left: 2.5em;
+  padding-right: 2.5em;
+  background-color: var(--buttons);
+  color: white;
+  border: none;
+  border-radius: 0.7em;
+  cursor: pointer;
+}
+
+/* Zoekbalk */
+section:first-of-type input {
+  padding: 1em;
+  background-color: var(--background1);
+  color: white;
+  border: none;
+  border-radius: 1em;
+}
+
+/* Nummertje bij het Hartje */
+section:nth-of-type(2) a span {
+  position: absolute;
+  min-width: 1.25em;
+  line-height: 1.25em;
+  left: 1.3em;
+  font-size: 0.5em;
+  text-align: center;
+  color: red;
+  background-color: white;
+  border-radius: .625em;
+}
+
+/* Het hartje zelf */
+.favoriet {
+  position: relative;
+  font-size: 1.5em;
+  text-decoration: none;
+  color: red;
+}
+
+/* Van view wisselen button */
+section:nth-of-type(2) img {
+  padding: 0.5em;
+  margin-right: 1em;
+  background-color: var(--buttons);
+  color: white;
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+/* Wisselen img van grid naar lijst en andersom */
+body.grid-view section:nth-of-type(2) img {
+  content: url("../images/list.svg");
+}
+
+/* Wissel van play naar pause en andersom */
+body.play-pause section:nth-of-type(3) ul li span::before {
+  content: url("../images/pause.svg");
+}
+
+/* Uitklap bij button sorteren  */
+.openSort, .openFilter {
+  position: fixed;
+  top: 50vh;
+  background: gray;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  border-radius: 5% 5% 0% 0%;
+  /* Verberg menu */
+  transform: translateX(-100%);
+  transition: 0.2s ease;
+  z-index: 1;
+}
+
+.open {
+  /* Laat menu zien */
+  transform: translateX(0);
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+}
+
+aside h2 {
+  display: flex;
+  justify-content: center;
+	margin-top: 0.5em;
+}
+
+aside input {
+  display: flex;
+  align-items: center;
+	margin-left: 2em;
+}
+
+aside label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+aside button{
+  display: flex;
+  justify-content: center;
+	margin-left: 3em;
+	margin-right: 3em;
+	margin-top: 2em;
+}
+
+/* Lijst met nummers */
+/* de list items zelf en wat er in zit */
+section:nth-of-type(3) ul li {
+  background-color: var(--background1);
+  margin: 1em;
+  padding: 1em;
+  border-radius: 1em;
+}
+
+section:nth-of-type(3) img {
+  width: 4em;
+  height: 4em;
+}
+
+/* Playbutton */
+section:nth-of-type(3) ul li span::before {
+	content: url("../images/play.svg");
+	position: absolute;
+	width: 2em;
+	height: 2em;
+	left: 1em;
+  top: 1em;
+}
+
+span{
+	display: inline-block;
+  position: relative;
+	cursor: pointer;
+}
+
+section:nth-of-type(3) h2 {
+  font-size: 1em;
+  height: 1em;
+}
+
+section:nth-of-type(3) p {
+  font-size: 0.5em;
+}
+
+/* Als het grid op lijst staat (onder elkaar)*/
+/* https://css-tricks.com/snippets/css/complete-guide-grid/ */
+section:nth-of-type(3) ul li {
+  display: grid;
+  grid-template-columns: 30% 50% 30%;
+	grid-template-rows: 2em 1em 1em;
+}
+
+section:nth-of-type(3) ul li p {
+  grid-column-start: 2;
+}
+
+section:nth-of-type(3) ul li img {
+  grid-row: 1 / 4;
+}
+
+section:nth-of-type(3) ul li button {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row: 1;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  color: red;
+}
+
+/* Als het grid op grid staat (naast elkaar) */
+body.grid-view section:nth-of-type(3) ul {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+body.grid-view section:nth-of-type(3) li {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3em 2em 1.5em;
+  width: 8em;
+  height: 10em;
+}
+
+body.grid-view section:nth-of-type(3) h2 {
+  grid-column-start: -4;
+  grid-column-end: -1;
+  grid-row: 3;
+	font-size: 0.7em;
+}
+
+body.grid-view section:nth-of-type(3) button {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+body.grid-view section:nth-of-type(3) p:first-of-type {
+  grid-column-start: -4;
+  grid-column-end: -3;
+  grid-row: 4;
+}
+
+body.grid-view section:nth-of-type(3) p:nth-of-type(2) {
+  grid-column-start: 0;
+  grid-column-end: 1;
+  grid-row: 4;
+}
+
+body.grid-view section:nth-of-type(3) img {
+  grid-column-start: 0;
+  grid-column-end: 1;
+  grid-row: 0;
+}

@@ -1,21 +1,125 @@
 <!doctype html>
 <html lang="nl">
-	
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="author" content="jouw naam">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
+
 	<title>Opdracht 2: Interactie galore - Frontend voor Designers</title>
-	
+
 	<link href="styles/style.css" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+	<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 </head>
 
 <body>
-	<h1>Opdracht 2</h1>
+	<header>
+		<h1>Party Playlist</h1>
+	</header>
 
+	<main id="theList">
+
+		<section>
+			<input type="search" class="search" placeholder="wat zoek je?">
+			<button class="filteren">Filters</button>
+
+			<aside class="openFilter">
+				<h2>Filteren op</h2>
+				<input type="radio" name="filter" value="all" id="filter-allemaal" checked>
+				<label for="filter-all">alle liedjes</label>
+				<!-- de values van de radio buttons worden zo gebruikt om te filteren -->
+				<input type="radio" name="filter" value="a" id="filter-pop">
+				<label for="filter-pop">Pop</label>
+				<input type="radio" name="filter" value="z" id="filter-rnb">
+				<label for="filter-rnb">RnB</label>
+				<input type="radio" name="filter" value="meest" id="filter-hiphop">
+				<label for="filter-hiphop">Hip Hop</label>
+				<input type="radio" name="filter" value="minst" id="filter-dance">
+				<label for="filter-dance">Dance</label>
+				<button type="button" name="button">Klaar</button>
+			</aside>
+		</section>
+
+		<section>
+			<button class="sorteren">Sorteren</button>
+			<a class="favoriet" href="#" title="wishlist">&#9829;<span>0</span></a>
+			<button class="view-grid" aria-label="wissel view" type="button" name="wissel-view">
+				<img src="images/menu.svg" alt="album"></button>
+			</ul>
+
+			<aside class="openSort">
+				<h2>Sorteren op</h2>
+				<input type="radio" name="filter" value="all" id="filter-all" checked>
+				<label for="filter-all">alle liedjes</label>
+				<!-- de values van de radio buttons worden zo gebruikt om te sorteren -->
+				<input type="radio" name="filter" value="a" id="filter-a">
+				<label for="filter-a">A tot Z</label>
+				<input type="radio" name="filter" value="z" id="filter-z">
+				<label for="filter-z">Z tot A</label>
+				<input type="radio" name="filter" value="meest" id="filter-meest">
+				<label for="filter-meest">Meest recent</label>
+				<input type="radio" name="filter" value="minst" id="filter-minst">
+				<label for="filter-minst">Minst recent</label>
+				<button type="button" name="button">Klaar</button>
+			</aside>
+		</section>
+
+		<section>
+			<ul class="list">
+				<li>
+					<span class="pause"><img src="images/billy.jpg" alt="album"></span>
+					<h2 class="name">Your Power</h1>
+						<p class="artiest">Billie Eilish</p>
+						<p class="genre">Pop</p>
+						<button class="favo" aria-label="Add to Favorites">&#9825;</button>
+				</li>
+
+				<li>
+					<span class="pause"><img src="images/jayz.jpg" alt="album"></span>
+					<h2 class="name">99 Problems</h1>
+						<p class="artiest">Jay-Z</p>
+						<p class="genre">HipHop</p>
+						<button class="favo" aria-label="Add to Favorites">&#9825;</button>
+				</li>
+
+				<li>
+					<span class="pause"><img src="images/rudimantal.jpg" alt="album"></span>
+					<h2 class="name">Be The One</h1>
+						<p class="artiest">Rudimental</p>
+						<p class="genre">Dance</p>
+						<button class="favo" aria-label="Add to Favorites">&#9825;</button>
+				</li>
+
+				<li>
+					<span class="pause"><img src="images/mario.jpg" alt="album"></span>
+					<h2 class="name">Let Me Love You</h1>
+						<p class="artiest">Mario</p>
+						<p class="genre">R&B</p>
+						<button class="favo" aria-label="Add to Favorites">&#9825;</button>
+				</li>
+
+				<li>
+					<span class="pause"><img src="images/ed.jpg" alt="album"></span>
+					<h2 class="name">Shape Of You</h1>
+						<p class="artiest">Ed Sheeran</p>
+						<p class="genre">Pop</p>
+						<button class="favo" aria-label="Add to Favorites">&#9825;</button>
+				</li>
+
+				<li>
+					<span class="pause"><img src="images/frank.jpg" alt="album"></span>
+					<h2 class="name">Pink + White</h1>
+						<p class="artiest">Frank Ocean</p>
+						<p class="genre">Pop</p>
+						<button class="favo" aria-label="Add to Favorites">&#9825;</button>
+				</li>
+			</ul>
+		</section>
+
+	</main>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
 	<script src="scripts/script.js"></script>
 </body>
-	
+
 </html>
