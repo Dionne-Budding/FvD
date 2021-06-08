@@ -92,8 +92,8 @@ section:nth-of-type(2) a span {
 
 /* Van view wisselen button */
 section:nth-of-type(2) img {
-  padding: 0.5em;
-  margin-right: 1em;
+  padding: 0.7em;
+  margin-right: 1.3em;
   background-color: var(--buttons);
   color: white;
   border: none;
@@ -101,18 +101,19 @@ section:nth-of-type(2) img {
   cursor: pointer;
 }
 
+section:nth-of-type(2) button:nth-of-type(2) {
+	padding: 0.7em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
 /* Wisselen img van grid naar lijst en andersom */
 body.grid-view section:nth-of-type(2) img {
   content: url("../images/list.svg");
 }
 
-/* Wissel van play naar pause en andersom */
-body.play-pause section:nth-of-type(3) ul li span::before {
-  content: url("../images/pause.svg");
-}
-
-/* Uitklap bij button sorteren  */
-.openSort, .openFilter {
+/* Uitklap bij button filteren  */
+.openFilter {
   position: fixed;
   top: 50vh;
   background: gray;
@@ -131,35 +132,38 @@ body.play-pause section:nth-of-type(3) ul li span::before {
   transform: translateX(0);
 }
 
-aside {
-  display: flex;
-  flex-direction: column;
-}
-
 aside h2 {
-  display: flex;
-  justify-content: center;
+  margin-left: 1em;
 	margin-top: 0.5em;
 }
 
-aside input {
-  display: flex;
-  align-items: center;
-	margin-left: 2em;
-}
-
-aside label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 aside button{
-  display: flex;
-  justify-content: center;
-	margin-left: 3em;
-	margin-right: 3em;
+	margin-left: 2em;
 	margin-top: 2em;
+}
+
+label{
+	display: block;
+	margin: 0.5em;
+	padding-left: 1em;
+}
+
+input{
+	margin-right: 1em;
+}
+
+
+/* Sorteren */
+.sort.asc::after {
+  content: "(az↓)";
+  padding-left: .25em;
+  font-weight:normal;
+}
+
+.sort.desc::after {
+  content: "(za↓)";
+  padding-left: .25em;
+  font-weight:normal;
 }
 
 /* Lijst met nummers */
@@ -176,16 +180,6 @@ section:nth-of-type(3) img {
   height: 4em;
 }
 
-/* Playbutton */
-section:nth-of-type(3) ul li span::before {
-	content: url("../images/play.svg");
-	position: absolute;
-	width: 2em;
-	height: 2em;
-	left: 1em;
-  top: 1em;
-}
-
 span{
 	display: inline-block;
   position: relative;
@@ -199,6 +193,40 @@ section:nth-of-type(3) h2 {
 
 section:nth-of-type(3) p {
   font-size: 0.5em;
+}
+
+/* Filteren */
+ul.pop li:not(.popSong) {
+  display:none;
+}
+
+ul.rnb li:not(.rnbSong) {
+  display:none;
+}
+
+ul.hiphop li:not(.hiphopSong) {
+  display:none;
+}
+
+ul.dance li:not(.danceSong) {
+  display:none;
+}
+
+/* filteren op grid view */
+body.grid-view ul.pop li:not(.popSong) {
+  display:none;
+}
+
+body.grid-view ul.rnb li:not(.rnbSong) {
+  display:none;
+}
+
+body.grid-view ul.hiphop li:not(.hiphopSong) {
+  display:none;
+}
+
+body.grid-view ul.dance li:not(.danceSong) {
+  display:none;
 }
 
 /* Als het grid op lijst staat (onder elkaar)*/
@@ -217,7 +245,7 @@ section:nth-of-type(3) ul li img {
   grid-row: 1 / 4;
 }
 
-section:nth-of-type(3) ul li button {
+section:nth-of-type(3) ul li button:first-of-type {
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row: 1;
@@ -228,17 +256,33 @@ section:nth-of-type(3) ul li button {
   color: red;
 }
 
+/* button pause en play */
+section:nth-of-type(3) ul li button:nth-of-type(2) {
+	background-color: transparent;
+	border: none;
+	overflow: visible;
+	padding-bottom: 2.5em;
+}
+
+section:nth-of-type(3) ul li button img {
+  width: 2em;
+	height: 2em;
+	cursor: pointer;
+}
+
 /* Als het grid op grid staat (naast elkaar) */
 body.grid-view section:nth-of-type(3) ul {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 1fr;
+	justify-content: center;
+	align-content: center;
 }
 
 body.grid-view section:nth-of-type(3) li {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 3em 2em 1.5em;
-  width: 8em;
+  width: 43vw;
   height: 10em;
 }
 
@@ -249,9 +293,15 @@ body.grid-view section:nth-of-type(3) h2 {
 	font-size: 0.7em;
 }
 
-body.grid-view section:nth-of-type(3) button {
-  grid-column-start: 1;
-  grid-column-end: 2;
+body.grid-view section:nth-of-type(3) button:first-of-type {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+body.grid-view section:nth-of-type(3) button:nth-of-type(2) {
+  grid-column-start: 2;
+  grid-column-end: 3;
+	grid-row: 2;
 }
 
 body.grid-view section:nth-of-type(3) p:first-of-type {

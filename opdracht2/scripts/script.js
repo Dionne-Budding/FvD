@@ -1,10 +1,7 @@
 // https://codepen.io/shooft/pen/bGpLVev?editors=0010
+
 /* omdat er meer buttons geselecteerd moeten worden, wordt querySelectorAll gebruikt (en niet querySelector) */
 var hearts = document.querySelectorAll("button.favo");
-
-// Pop up sorteren
-var sorteren = document.querySelector(".sorteren");
-var openSort = document.querySelector(".openSort");
 
 // pop up filteren
 var filteren = document.querySelector(".filteren");
@@ -13,8 +10,43 @@ var openFilter = document.querySelector(".openFilter");
 // Voor het wisselen van view
 var view = document.querySelector("button[name='wissel-view']");
 
-// Wissel van play naar pause en andersom
-var pause = document.querySelector(".pause");
+/* alle button met class 'wish' in de HTML opzoeken */
+/* omdat er meer buttons geselecteerd moeten worden, wordt querySelectorAll gebruikt (en niet querySelector) */
+/* het gevonden lijstje met buttons (een array) in de variabele 'hearts' opslaan */
+var play = document.querySelectorAll("img.play");
+
+// opzoeken
+var options = {valueNames: [ 'name', 'artiest', 'genre' ]};
+var charactersList = new List('theList', options);
+
+// muziek
+// var playerSongs = player.querySelectorAll(".audio");
+
+/* 1. zoek de 4 radio buttons op en sla die op in een variabele */
+// document.querySelector
+var optionAll = document.querySelector("#filter-all");
+var optionPop = document.querySelector("#filter-pop");
+var optionRnb = document.querySelector("#filter-rnb");
+var optionHiphop = document.querySelector("#filter-hiphop");
+var optionDance = document.querySelector("#filter-dance");
+
+/* de opties om het sorteren te initialiseren */
+var sort = {
+  // de classes van de h2's en p's (daarin gaat de lijst gesorteerd worden)
+  valueNames: [ 'name' ]
+};
+
+/* de opties om het draggen-en-droppen te initialiseren */
+var options = {
+  // de tijd van swappen in ms
+  animation: 1000
+}
+
+/* het daadwerkelijk initialiseren van het draggen-en-droppen */
+// list - de class van de ul
+// options - hierboven gedefinieerd
+var deLijst = document.querySelector(".list");
+var sortable = Sortable.create(deLijst, options);
 
 
 // Functie hartje laten vullen
@@ -70,12 +102,6 @@ function updatefavoriet(action) {
   wishlistAmount.innerHTML = newAmount;
 }
 
-// Functie voor sorteren button
-function sorterenOp(){
-  openSort.classList.toggle("open");
-  sorteren.classList.toggle("dicht");
-}
-
 // Functie voor filteren button
 function filterenOp(){
   openFilter.classList.toggle("open");
@@ -88,8 +114,29 @@ function wisselview() {
 }
 
 // Wissel van play naar pause en andersom
-function wisselpause() {
-  document.body.classList.toggle("play-pause");
+function wissel(event) {
+  var clickedPlay = event.target;
+
+  if (clickedPlay.src == "images/pause.svg") {
+    clickedPlay.src = "images/play.svg";
+  }
+
+  else {
+    clickedPlay.src = "images/pause.svg";
+  }
+}
+
+/* 3. maak die functie aan */
+// zoek de ul op en stop die in een variabele
+// sla de value van de gekozen radio button op in een variabele --> event.target.value
+// verwijder de huidige class van de ul --> deLijst.className = "";
+// voeg de de nieuwe value als class toe aan de ul --> gebruik daarvoor de variabele van 2 regels omhoog
+function filterList() {
+  var deLijst = document.querySelector("ul");
+  var nieuweFilter = event.target.value;
+
+  deLijst.className = "";
+  deLijst.classList.add(nieuweFilter);
 }
 
 /* elke button laten luisteren naar een klik in een array */
@@ -100,8 +147,6 @@ hearts[3].addEventListener("click", addToFavorites);
 hearts[4].addEventListener("click", addToFavorites);
 hearts[5].addEventListener("click", addToFavorites);
 
-// Sorteren
-sorteren.addEventListener("click", sorterenOp);
 
 // filteren
 filteren.addEventListener("click", filterenOp);
@@ -110,14 +155,24 @@ filteren.addEventListener("click", filterenOp);
 view.addEventListener("click", wisselview);
 
 // Wissel van play naar pause en andersom
-pause.addEventListener("click", wisselpause);
+// pause.addEventListener("click", wisselpause);
 
-var options = {
-  // de classes van de h2's en p's (daarin gaat gezocht worden naar matches)
-  valueNames: [ 'name', 'artiest', 'genre' ]
-};
 
-/* het daadwerkelijk initialiseren van het zoeken */
-// theList - de ID van de main
-// options - hierboven gedefinieerd
-var charactersList = new List('theList', options);
+/* 2. laat de radio buttons luisteren naar wijzigingen */
+// addEventListener
+// roep dan steeds dezelfde functie aan
+optionAll.addEventListener("change", filterList);
+optionPop.addEventListener("change", filterList);
+optionRnb.addEventListener("change", filterList);
+optionHiphop.addEventListener("change", filterList);
+optionDance.addEventListener("change", filterList);
+
+
+/* elke button laten luisteren naar een klik */
+/* na een klik de functie 'toggleLove' uitvoeren */
+play[0].addEventListener("click", wissel);
+play[1].addEventListener("click", wissel);
+play[2].addEventListener("click", wissel);
+play[3].addEventListener("click", wissel);
+play[4].addEventListener("click", wissel);
+play[5].addEventListener("click", wissel);

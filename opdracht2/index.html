@@ -25,100 +25,91 @@
 
 			<aside class="openFilter">
 				<h2>Filteren op</h2>
-				<input type="radio" name="filter" value="all" id="filter-allemaal" checked>
-				<label for="filter-all">alle liedjes</label>
+				<label for="filter-all"><input type="radio" name="filter" value="all" id="filter-all" checked>
+				alle liedjes</label>
 				<!-- de values van de radio buttons worden zo gebruikt om te filteren -->
-				<input type="radio" name="filter" value="a" id="filter-pop">
-				<label for="filter-pop">Pop</label>
-				<input type="radio" name="filter" value="z" id="filter-rnb">
-				<label for="filter-rnb">RnB</label>
-				<input type="radio" name="filter" value="meest" id="filter-hiphop">
-				<label for="filter-hiphop">Hip Hop</label>
-				<input type="radio" name="filter" value="minst" id="filter-dance">
-				<label for="filter-dance">Dance</label>
+				<label for="filter-pop"><input type="radio" name="filter" value="pop" id="filter-pop">
+				Pop</label>
+				<label for="filter-rnb"><input type="radio" name="filter" value="rnb" id="filter-rnb">
+				RnB</label>
+				<label for="filter-hiphop"><input type="radio" name="filter" value="hiphop" id="filter-hiphop">
+				Hip Hop</label>
+				<label for="filter-dance"><input type="radio" name="filter" value="dance" id="filter-dance">
+				Dance</label>
 				<button type="button" name="button">Klaar</button>
 			</aside>
 		</section>
 
 		<section>
-			<button class="sorteren">Sorteren</button>
+			<button class="sort" data-sort="name">Soteren op titel</button>
 			<a class="favoriet" href="#" title="wishlist">&#9829;<span>0</span></a>
 			<button class="view-grid" aria-label="wissel view" type="button" name="wissel-view">
 				<img src="images/menu.svg" alt="album"></button>
-			</ul>
-
-			<aside class="openSort">
-				<h2>Sorteren op</h2>
-				<input type="radio" name="filter" value="all" id="filter-all" checked>
-				<label for="filter-all">alle liedjes</label>
-				<!-- de values van de radio buttons worden zo gebruikt om te sorteren -->
-				<input type="radio" name="filter" value="a" id="filter-a">
-				<label for="filter-a">A tot Z</label>
-				<input type="radio" name="filter" value="z" id="filter-z">
-				<label for="filter-z">Z tot A</label>
-				<input type="radio" name="filter" value="meest" id="filter-meest">
-				<label for="filter-meest">Meest recent</label>
-				<input type="radio" name="filter" value="minst" id="filter-minst">
-				<label for="filter-minst">Minst recent</label>
-				<button type="button" name="button">Klaar</button>
-			</aside>
 		</section>
 
 		<section>
 			<ul class="list">
-				<li>
-					<span class="pause"><img src="images/billy.jpg" alt="album"></span>
-					<h2 class="name">Your Power</h1>
+				<li class="popSong">
+					<img src="images/billy.jpg" alt="album">
+					<h2 class="name">Your Power</h2>
 						<p class="artiest">Billie Eilish</p>
 						<p class="genre">Pop</p>
 						<button class="favo" aria-label="Add to Favorites">&#9825;</button>
+						<button class="pause" aria-label="wissel pause"><img class="play" src="images/play.svg" alt="album"></button>
+						<audio class="audio" src="muziek/yourpower.mp3"></audio>
 				</li>
 
-				<li>
+				<li class="hiphopSong">
 					<span class="pause"><img src="images/jayz.jpg" alt="album"></span>
-					<h2 class="name">99 Problems</h1>
+					<h2 class="name">99 Problems</h2>
 						<p class="artiest">Jay-Z</p>
 						<p class="genre">HipHop</p>
 						<button class="favo" aria-label="Add to Favorites">&#9825;</button>
+						<button class="pause" aria-label="wissel pause"><img class="play" src="images/play.svg" alt="album"></button>
 				</li>
 
-				<li>
+				<li class="danceSong">
 					<span class="pause"><img src="images/rudimantal.jpg" alt="album"></span>
-					<h2 class="name">Be The One</h1>
+					<h2 class="name">Be The One</h2>
 						<p class="artiest">Rudimental</p>
 						<p class="genre">Dance</p>
 						<button class="favo" aria-label="Add to Favorites">&#9825;</button>
+						<button class="pause" aria-label="wissel pause"><img class="play" src="images/play.svg" alt="album"></button>
 				</li>
 
-				<li>
+				<li class="rnbSong">
 					<span class="pause"><img src="images/mario.jpg" alt="album"></span>
-					<h2 class="name">Let Me Love You</h1>
+					<h2 class="name">Let Me Love You</h2>
 						<p class="artiest">Mario</p>
 						<p class="genre">R&B</p>
 						<button class="favo" aria-label="Add to Favorites">&#9825;</button>
+						<button class="pause" aria-label="wissel pause"><img class="play" src="images/play.svg" alt="album"></button>
 				</li>
 
-				<li>
+				<li class="popSong">
 					<span class="pause"><img src="images/ed.jpg" alt="album"></span>
-					<h2 class="name">Shape Of You</h1>
+					<h2 class="name">Shape Of You</h2>
 						<p class="artiest">Ed Sheeran</p>
 						<p class="genre">Pop</p>
 						<button class="favo" aria-label="Add to Favorites">&#9825;</button>
+						<button class="pause" aria-label="wissel pause"><img class="play" src="images/play.svg" alt="album"></button>
 				</li>
 
-				<li>
+				<li class="popSong">
 					<span class="pause"><img src="images/frank.jpg" alt="album"></span>
-					<h2 class="name">Pink + White</h1>
+					<h2 class="name">Pink + White</h2>
 						<p class="artiest">Frank Ocean</p>
 						<p class="genre">Pop</p>
 						<button class="favo" aria-label="Add to Favorites">&#9825;</button>
+						<button class="pause" aria-label="wissel pause"><img class="play" src="images/play.svg" alt="album"></button>
 				</li>
 			</ul>
 		</section>
 
 	</main>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+  <script src="scripts/drag.js"></script>
+  <script src="scripts/list.min.js"></script>
 	<script src="scripts/script.js"></script>
 </body>
 
