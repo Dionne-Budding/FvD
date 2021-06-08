@@ -24,6 +24,8 @@ body {
 	--background2: #bbadff;
 	--tekst: #2C0C4D;
 	--tekst2: white;
+	--buttontekst: white;
+	--input2: #2C0C4D;
 	--hart: white;
 	--filter: #2C0C4D;
 	--input: #fffffc;
@@ -73,22 +75,27 @@ section:first-of-type, section:nth-of-type(2) {
 /* button filter*/
 section:first-of-type button, section:nth-of-type(2) button {
   padding: 1.2em;
-  padding-left: 2.5em;
-  padding-right: 2.5em;
+  padding-left: 10vw;
+  padding-right: 10vw;
   background-color: var(--buttons);
-  color: var(--tekst);
+  color: var(--buttontekst);
   border: none;
   border-radius: 0.7em;
   cursor: pointer;
 }
 
+section:first-of-type button:active, section:nth-of-type(2) button:active{
+	background-color: #ff79cd;
+}
+
 /* Zoekbalk */
-section:first-of-type input {
+section:first-of-type input.search {
   padding: 1em;
   background-color: var(--input);
-  color: var(--tekst);
+  color: var(--input2);
   border: none;
   border-radius: 1em;
+	width: 48vw;
 }
 
 /* Nummertje bij het Hartje */
@@ -123,7 +130,7 @@ section:nth-of-type(2) img {
 }
 
 section:nth-of-type(2) button:nth-of-type(2) {
-	padding: 0.7em;
+	padding: 0.5em;
   padding-left: 1.5em;
   padding-right: 1.5em;
 }
@@ -136,7 +143,7 @@ body.grid-view section:nth-of-type(2) img {
 /* Uitklap bij button filteren  */
 .openFilter {
   position: fixed;
-  top: 50vh;
+  top: 60vh;
   background: var(--filter);
   width: 100vw;
   height: 100vh;
@@ -151,6 +158,15 @@ body.grid-view section:nth-of-type(2) img {
 .open {
   /* Laat menu zien */
   transform: translateX(0);
+}
+
+aside.openFilter {
+  transition:1s;
+}
+
+aside.openFilter.toonMenu {
+  /* jouw code hier */
+  transform:translatex(0);
 }
 
 aside h2 {
@@ -343,4 +359,76 @@ body.grid-view section:nth-of-type(3) img {
   grid-column-start: 0;
   grid-column-end: 1;
   grid-row: 0;
+}
+
+/* Animation */
+@keyframes like{
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(-60deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.favo:hover {
+  animation-name: like;
+  animation-duration: 1s;
+}
+
+@keyframes play{
+  0% {
+    transform: scale(1);
+  }
+
+  20% {
+    transform: scale(2);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+
+	80% {
+    transform: scale(2);
+  }
+
+	100% {
+    transform: scale(1);
+  }
+}
+
+section:nth-of-type(3)  ul li:first-of-type button:nth-of-type(2){
+  animation-name: play;
+  animation-duration: 2s;
+	animation-delay: 2s;
+}
+
+.list::before {
+  content: url("../images/click.svg");
+  position: absolute;
+  width: 4em;
+  height: 0.12em;
+  left: 40vw;
+  top: 40vh;
+	animation-name: hand;
+  animation-duration: 5s;
+	animation-delay: 5s;
+	opacity: 0;
+}
+
+@keyframes hand {
+  0% {
+		opacity: 100%;
+		transform: translateY(0);
+  }
+
+	100% {
+    transform: translateY(5em);
+  }
 }

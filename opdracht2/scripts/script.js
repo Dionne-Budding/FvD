@@ -19,8 +19,6 @@ var play = document.querySelectorAll("img.play");
 var options = {valueNames: [ 'name', 'artiest', 'genre' ]};
 var charactersList = new List('theList', options);
 
-// muziek
-// var playerSongs = player.querySelectorAll(".audio");
 
 /* 1. zoek de 4 radio buttons op en sla die op in een variabele */
 // document.querySelector
@@ -48,6 +46,9 @@ var options = {
 var deLijst = document.querySelector(".list");
 var sortable = Sortable.create(deLijst, options);
 
+// Muziek
+var button = document.querySelector(".pause");
+var audio = document.querySelector(".audio");
 
 // Functie hartje laten vullen
 function addToFavorites(event) {
@@ -113,16 +114,17 @@ function wisselview() {
   document.body.classList.toggle("grid-view");
 }
 
+// Credits naar Sam!!!!!
 // Wissel van play naar pause en andersom
 function wissel(event) {
   var clickedPlay = event.target;
-
-  if (clickedPlay.src == "images/pause.svg") {
-    clickedPlay.src = "images/play.svg";
+  if (!clickedPlay.classList.contains('pausedButton')) {
+     clickedPlay.src = "images/pause.svg";
+     clickedPlay.classList.add('pausedButton')
   }
-
   else {
-    clickedPlay.src = "images/pause.svg";
+    clickedPlay.src = "images/play.svg";
+    clickedPlay.classList.remove('pausedButton')
   }
 }
 
@@ -139,6 +141,36 @@ function filterList() {
   deLijst.classList.add(nieuweFilter);
 }
 
+function openFilterMenu(event) {
+  /* de aside opzoeken met document.querySelector */
+  /* en die in een variabele stoppen */
+  let deAside = document.querySelector("aside.openFilter");
+  /* bepalen welke toets is ingedrukt */
+  switch(event.key) {
+    /* als dat de ArrowRight is dan dit doen */
+    case "ArrowRight":
+      deAside.classList.add("toonMenu");
+      /* break - zodat de andere toetsen niet onnodig gecheckt worden */
+      break;
+    /* als dat de ArrowLeft is dan dit doen */
+    case "ArrowLeft":
+      deAside.classList.remove("toonMenu");
+      break;
+  }
+}
+
+// Muziek https://jsfiddle.net/hibbard_eu/enoqwg5b/
+button.addEventListener("click", function(){
+  if(audio.paused){
+    audio.play();
+
+  } else {
+    audio.pause();
+
+  }
+});
+
+
 /* elke button laten luisteren naar een klik in een array */
 hearts[0].addEventListener("click", addToFavorites);
 hearts[1].addEventListener("click", addToFavorites);
@@ -153,9 +185,6 @@ filteren.addEventListener("click", filterenOp);
 
 // wissel van view
 view.addEventListener("click", wisselview);
-
-// Wissel van play naar pause en andersom
-// pause.addEventListener("click", wisselpause);
 
 
 /* 2. laat de radio buttons luisteren naar wijzigingen */
@@ -176,3 +205,7 @@ play[2].addEventListener("click", wissel);
 play[3].addEventListener("click", wissel);
 play[4].addEventListener("click", wissel);
 play[5].addEventListener("click", wissel);
+
+/* het document luistert naar toetsaanslagen */
+/* bij een toetsaanslag wordt de functie openMenuMetToetsen uitgevoerd */
+document.addEventListener('keydown', openFilterMenu);
