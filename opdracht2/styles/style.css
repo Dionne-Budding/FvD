@@ -15,15 +15,38 @@
   padding: 0;
 }
 
+
 body {
-  --backgroundColor: #2C0C4D;
-  --buttons: #FF18D5;
-  --background1: #47276A;
-  --background2: #701EC2;
+
+	--backgroundColor: #e5bdf6;
+	--buttons: #FF18D5;
+	--background1: #F7E0FF;
+	--background2: #bbadff;
+	--tekst: #2C0C4D;
+	--tekst2: white;
+	--hart: white;
+	--filter: #2C0C4D;
+	--input: #fffffc;
+
   font-family: eenfont, sans-serif;
   color: #111;
   background-color: var(--backgroundColor);
   color: white;
+}
+
+@media (prefers-color-scheme:dark) {
+  body {
+    /* dark theme */
+		--backgroundColor: #2C0C4D;
+	  --buttons: #FF18D5;
+	  --background1: #47276A;
+	  --background2: #701EC2;
+		--tekst: white;
+		--tekst2: #2C0C4D;
+		--hart: red;
+		--filter: #fffffc;
+		--input: #fffffc;
+  }
 }
 
 ul {
@@ -32,13 +55,12 @@ ul {
 
 /* BRAND STYLING */
 header {
-  background-color: var(--backgroundColor);
   text-align: center;
 }
 
 header h1 {
   padding: 2%;
-  color: white;
+  color: var(--tekst);
 }
 
 /* 1e section met zoekbalk en filter */
@@ -54,7 +76,7 @@ section:first-of-type button, section:nth-of-type(2) button {
   padding-left: 2.5em;
   padding-right: 2.5em;
   background-color: var(--buttons);
-  color: white;
+  color: var(--tekst);
   border: none;
   border-radius: 0.7em;
   cursor: pointer;
@@ -63,8 +85,8 @@ section:first-of-type button, section:nth-of-type(2) button {
 /* Zoekbalk */
 section:first-of-type input {
   padding: 1em;
-  background-color: var(--background1);
-  color: white;
+  background-color: var(--input);
+  color: var(--tekst);
   border: none;
   border-radius: 1em;
 }
@@ -77,8 +99,8 @@ section:nth-of-type(2) a span {
   left: 1.3em;
   font-size: 0.5em;
   text-align: center;
-  color: red;
-  background-color: white;
+  color: var(--hart);
+  background-color: var(--tekst);;
   border-radius: .625em;
 }
 
@@ -87,7 +109,7 @@ section:nth-of-type(2) a span {
   position: relative;
   font-size: 1.5em;
   text-decoration: none;
-  color: red;
+  color: var(--hart);
 }
 
 /* Van view wisselen button */
@@ -95,7 +117,6 @@ section:nth-of-type(2) img {
   padding: 0.7em;
   margin-right: 1.3em;
   background-color: var(--buttons);
-  color: white;
   border: none;
   border-radius: 0.5em;
   cursor: pointer;
@@ -116,7 +137,7 @@ body.grid-view section:nth-of-type(2) img {
 .openFilter {
   position: fixed;
   top: 50vh;
-  background: gray;
+  background: var(--filter);
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -135,6 +156,7 @@ body.grid-view section:nth-of-type(2) img {
 aside h2 {
   margin-left: 1em;
 	margin-top: 0.5em;
+	color: var(--tekst2);
 }
 
 aside button{
@@ -146,12 +168,12 @@ label{
 	display: block;
 	margin: 0.5em;
 	padding-left: 1em;
+	color: var(--tekst2);
 }
 
 input{
 	margin-right: 1em;
 }
-
 
 /* Sorteren */
 .sort.asc::after {
@@ -235,6 +257,7 @@ section:nth-of-type(3) ul li {
   display: grid;
   grid-template-columns: 30% 50% 30%;
 	grid-template-rows: 2em 1em 1em;
+	color: var(--tekst)
 }
 
 section:nth-of-type(3) ul li p {
