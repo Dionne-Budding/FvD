@@ -64,5 +64,61 @@ Presentatie:
 - Wat er lastig is: Het Instagram logo was een stukje moeilijker. Eerst wilde ik de letters uitgeschreven animeren, maar ik zag hier alleen voorbeelden met svg's van. Toen heb ik uiteindelijk met -webkit-background-clip: text; een gradient van links laten komen, dit gaf ook een beetje hetzelfde effect. Ook was het lastig om het instagram logo van grijs naar kleur te laten verlopen en vind het wel super tof dat dit gelukt is, zonder veel voorbeelden.
 - Wat je plannen zijn: Presenteren:)
 
-Eerst kwam de gradient er zo in. 
+Eerst kwam de gradient er zo in.
 <img src="images/insta2.jpg" width="375px" alt="Vans Logo">
+
+
+
+##VOORTGANG OPDRACHT 2
+
+## Bronnenlijst
+1. -https://css-tricks.com/snippets/css/complete-guide-grid/
+2. -https://codepen.io/shooft/pen/bGpLVev?editors=0010
+3. -https://jsfiddle.net/hibbard_eu/enoqwg5b/
+4. -https://listjs.com
+5. -https://codepen.io/shooft/pen/eYvNVod
+6. -https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations
+7. -https://codepen.io/shooft/pen/VwpvVYy
+8. -https://codepen.io/shooft/pen/VwpvBeX
+9. -https://codepen.io/shooft/pen/WNpQKar
+10. -https://codepen.io/shooft/pen/LYWpgVp
+
+1e voortgangsgesprek:
+Voor het eerste voortgangsgesprek had ik nog niks gedaan qua javascript en nog best weinig css. Ik had vooral de opdrachten gemaakt die in de lessen daarvoor gemaakt moesten worden.
+- Dit was ik van plan: Ik ben toch gegaan naar het voortgangsgesprek en was daar alleen met Dylan, dus we hadden luxe veel tijd om vragen te stellen, dit was ik ook van plan.
+- Je werk zo ver: Het voorgangsgesprek heeft mij meer duidelijkheid gegeven. Ik zat eerst met een idee in mijn hoofd wat toch lastig was (playlist aanmaken en bewerken). Door mijn idee te versimpelen had ik meer rust in mijn hoofd en had ik duidelijker voor mezelf waar ik mee moest beginnen, dit was fijn.  
+- Wat er goed ging: De basis van mijn html opzetten ging goed. Het zag er netjes uit en was een goede basis om verder mee te gaan.
+- Wat er lastig is: Ik vond het lastig om met javascript te beginnen en heb dat eigenlijk te ver uitgesteld, omdat ik hier tegenop keek.
+- Wat je plannen zijn: Goed kijken naar de opdrachten van de les en die proberen te begrijpen en te implementeren in mijn eigen design.
+- wat ik wil bespreken: 1. mijn ontwerp
+
+<img src="images/foto1.jpg" width="375px" alt="">
+
+
+2e voortgangsgesprek:
+Voor het 2e voortgangsgesprek had ik nog steeds niet heel veel. Wel had ik een micro interactie aan de praat gekregen; wanneer je op een hartje klikt en een 1tje komt te staan.
+- Dit was ik van plan: Weer waren Dylan en ik alleen bij et gesprek en hadden we dus een half uur p.p. om geholpen te worden. Dit was weer syper nuttig en dit heeft mij een stuk opweg geholpen. We hebben het gridview aangepast en de foto dan ook veranderd in css.
+- Wat er goed ging: De opdrachten bekijken en die begrijpen en die dan kunnen toepassen.
+- Wat er lastig is: Ik heb wel lang met het grid gerommeld omdat het er steeds net niet uitkwam te zien zoals ik wou.
+- Wat je plannen zijn: Alle knoppen werkend maken, animaties, dark/light mode en responsive maken. (als het kan nog audio als ik op de playbutton klik)
+- wat ik wil bespreken: 1. grid view
+
+<img src="images/grid.jpg" width="375px" alt="">
+
+
+Eindgesprek:
+Voor het eindgesprek moest ik nog super veel doen. Waardoor ik een paar leuke ideeen niet kon uitwerken. Ook vond ik het jammer dat ik soms zo met javascript in de knoop zat dat ik weinig tijd heb besteed aan animeren, wat ik juist het leukst vind. In het begin had ik al meer kunnen vragen, maar ben ik te eigenwijs en wil ik het zelf kunnen (les voor volgende keer: vragen stellen)
+- Dit was ik van plan: Alles afmaken
+- Je werk zo ver: Ik moest nog filteren en sorteren en zoeken functie, een playbutton maken, op meerdere manieren bedienen. Ik heb eigenlijk alles gevonden bij de oprdachten van tijdens de les en dit verwerkt in mijn ontwerkp.  
+- Wat er goed ging: De dark/light mode ging goed, door de opdracht van vorige keer. Ook ging het verbazingwekkend goed om een liedje te laten afspelen, wanneer ik op de playbutton klik. Dit is helaas alleen gelukt voor 1 liedje.
+- Wat er lastig is: De vormgeving van aside voor filteren ging heel stroef. Ik kreeg de input en label maar niet naast elkaar. Hier heb ik veel te lang over gedaan en naar veel zoeken is het half gelukt. Ook was het even lastig om de playbutton afzondelijk van elkaar te klikken, eerst als je 1tje klikte, deed de rest ook mee...
+
+<img src="images/aside.jpg" width="375px" alt="">
+<img src="images/aside2.jpg" width="375px" alt="">
+<img src="images/tada.jpg" width="375px" alt="">
+<img src="images/klik.jpg" width="375px" alt="">
+
+Muziek afspelen
+<img src="images/muziek.jpg" width="375px" alt="Vans Logo">
+1e keer werken met grid:)
+<img src="images/grid2.jpg" width="375px" alt="Vans Logo">
